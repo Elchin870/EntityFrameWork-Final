@@ -53,15 +53,15 @@ namespace User
 
         static void Main(string[] args)
         {
-            using var dbContext = new MarketDbContext();
-            dbContext.Database.EnsureCreated();
+            var dbContext = new MarketDbContext();
+            dbContext.Database.Migrate();
 
             bool loggedUser = false;
             while (!loggedUser)
             {
-                Console.WriteLine("1) Register");
-                Console.WriteLine("2) Login");
-                Console.WriteLine("3) Exit");
+                Console.WriteLine("1)Register");
+                Console.WriteLine("2)Login");
+                Console.WriteLine("3)Exit");
                 Console.Write("Secim edin: ");
                 var secim = Console.ReadLine();
 
@@ -103,10 +103,10 @@ namespace User
             while (inMenuUser)
             {
                 Console.WriteLine($"Xos geldiniz {userInDataBase.Username}");
-                Console.WriteLine("1) Katagoriyalar");
-                Console.WriteLine("2) Sebete bax");
-                Console.WriteLine("3) Profil");
-                Console.WriteLine("4) Cixis");
+                Console.WriteLine("1)Katagoriyalar");
+                Console.WriteLine("2)Sebete bax");
+                Console.WriteLine("3)Profil");
+                Console.WriteLine("4)Cixis");
                 Console.Write("Secim edin: ");
                 var secimUser = Console.ReadLine();
 
@@ -132,8 +132,8 @@ namespace User
                                     Console.WriteLine($"{i + 1}) {product.Name}  Price: {product.Price} azn  Count: {product.Count}");
                                 }
                                 Console.WriteLine();
-                                Console.WriteLine("+) Sebete elave et");
-                                Console.WriteLine("-) Menu");
+                                Console.WriteLine("+)Sebete elave et");
+                                Console.WriteLine("-)Menu");
                                 Console.Write("Secim edin: ");
                                 var sebetSecim = Console.ReadLine();
                                 if (sebetSecim == "+")
@@ -205,9 +205,9 @@ namespace User
                         #region Sebet
                         Console.Clear();
                         basket.ShowBasket();
-                        Console.WriteLine("1) Sifarisi tesdiq etmek");
-                        Console.WriteLine("2) Sebetden produkt silmek");
-                        Console.WriteLine("3) Evvelki Menu");
+                        Console.WriteLine("1)Sifarisi tesdiq etmek");
+                        Console.WriteLine("2)Sebetden produkt silmek");
+                        Console.WriteLine("3)Evvelki Menu");
                         Console.Write("Secim edin: ");
                         var secimBasket = Console.ReadLine();
                         if (secimBasket == "1")
